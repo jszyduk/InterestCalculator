@@ -1,0 +1,13 @@
+<app-nav-menu></app-nav-menu>
+<ng-sidebar-container>
+  <ng-sidebar [opened]="true">
+    <p>Menu</p>
+    <ul class="menu">
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li><a [routerLink]="['/house-loan']">House loan</a></li>
+    </ul>
+  </ng-sidebar>
+  <div ng-sidebar-content>
+    <router-outlet></router-outlet>
+  </div>
+</ng-sidebar-container>

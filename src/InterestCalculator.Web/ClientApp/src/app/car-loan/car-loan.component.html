@@ -1,0 +1,27 @@
+<h1 id="tableLabel">Car Loan</h1>
+
+<app-loan-params-form (loanEvent)="receiveLoanData($event)"></app-loan-params-form>
+
+<div *ngIf="loanCost">
+  Total amount to payback: {{ loanCost.totalPaybackAmount }}
+  Total interest to payback: {{ loanCost.totalInterestAmount }}
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="loanCost">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Amount</th>
+      <th>Interest</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of loanCost.months">
+      <td>{{ item.month }}</td>
+      <td>{{ item.amount | number :'1.2-2' }}</td>
+      <td>{{ item.interest | number :'1.2-2' }}</td>
+      <td>{{ item.total | number :'1.2-2' }}</td>
+    </tr>
+  </tbody>
+</table>

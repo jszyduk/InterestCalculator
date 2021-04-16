@@ -1,0 +1,21 @@
+<form [formGroup]="loanParamsForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input id="amount" type="text" class="form-control" formControlName="amount" required />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="years">Payback time in years</label>
+        <input id="years" type="text" class="form-control" formControlName="years" required />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 ">
+      <button class="btn btn-primary" type="submit" [disabled]="!loanParamsForm.valid">Submit</button>
+    </div>
+  </div>
+</form>
