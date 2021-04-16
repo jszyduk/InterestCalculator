@@ -25,8 +25,6 @@ namespace InterestCalculator.Core.Service
             return await Task.Run(() =>
             {
                 var result = new LoanCost();
-                var totalPaybackMonths = loan.Years * 12;
-                //var monthlyInterest = _loanStrategy.GetMonthlyInterest(loan);
 
                 result.TotalPaybackAmount = _loanStrategy.CalculateTotalPaybackAmount(loan);
                 result.TotalInterestAmount = _loanStrategy.GetTotalInterest(loan);
