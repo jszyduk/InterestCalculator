@@ -1,4 +1,6 @@
-﻿namespace InterestCalculator.Core.Strategies.Payback
+﻿using InterestCalculator.Core.Common;
+
+namespace InterestCalculator.Core.Strategies.Payback
 {
     public class SteadyPaybackStrategy : IPaybackStrategy
     {
@@ -9,9 +11,10 @@
             Years = years;
         }
 
-        public decimal CalculateMonthlyInterest(decimal amount, decimal rate)
+        public decimal CalculateMonthlyInterest(decimal amount, decimal rate, int month)
         {
-            return (amount * (rate / 100)) / 12;
+            decimal ratio = Utils.GetDaysCount(month) / (decimal)365;
+            return amount * (rate /100) * ratio;
         }
 
         public decimal CalculateTotalInterest(decimal amount, decimal rate)

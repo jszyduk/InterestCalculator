@@ -9,9 +9,9 @@ namespace InterestCalculator.Core.Strategies.Loans
             return paybackStrategy.CalculateTotalInterest(amount, rate);
         }
 
-        public virtual decimal GetMonthlyInterest(decimal amount, decimal rate, IPaybackStrategy paybackStrategy)
+        public virtual decimal GetMonthlyInterest(decimal amount, decimal rate, int month, IPaybackStrategy paybackStrategy)
         {
-            return paybackStrategy.CalculateMonthlyInterest(amount, rate);
+            return paybackStrategy.CalculateMonthlyInterest(amount, rate, month);
         }
     }
 }

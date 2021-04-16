@@ -35,9 +35,9 @@ namespace InterestCalculator.Core.Test
                 PaybackStrategy = new SteadyPaybackStrategy(10)
             };
 
-            var result = houseLoanStrateg.GetMonthlyInterest(loan);
+            var result = houseLoanStrateg.GetMonthlyInterest(loan, 1);
 
-            Math.Round(result, 2).Should().Be(2.92M);
+            Math.Round(result, 2).Should().Be(2.97M);
         }
 
         [Fact]

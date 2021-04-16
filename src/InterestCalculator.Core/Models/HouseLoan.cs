@@ -2,7 +2,7 @@
 {
     public class HouseLoan : Loan
     {
-        public override decimal Rate => 3.5M;
+        public override decimal Rate => 5M;
 
     }
 }

@@ -26,21 +26,24 @@ namespace InterestCalculator.Core.Service
             {
                 var result = new LoanCost();
                 var totalPaybackMonths = loan.Years * 12;
-                var monthlyInterest = _loanStrategy.GetMonthlyInterest(loan);
+                //var monthlyInterest = _loanStrategy.GetMonthlyInterest(loan);
 
                 result.TotalPaybackAmount = _loanStrategy.CalculateTotalPaybackAmount(loan);
                 result.TotalInterestAmount = _loanStrategy.GetTotalInterest(loan);
 
-                for (int i = 1; i <= totalPaybackMonths; i++)
+                for (int i = 0; i < loan.Years; i++)
                 {
-                    var loanCostItem = new LoanCostItem
+                    for (int k = 1; k <= 12; k++)
                     {
-                        Amount = loan.Amount / totalPaybackMonths,
-                        Interest = monthlyInterest,
-                        Month = i
-                    };
+                        var loanCostItem = new LoanCostItem
+                        {
+                            Amount = _loanStrategy.CalculateMonthlyPaybackCapital(loan),
+                            Interest = _loanStrategy.GetMonthlyInterest(loan, k),
+                            Month = k
+                        };
 
-                    result.Months.Add(loanCostItem);
+                        result.Months.Add(loanCostItem);
+                    }
                 }
 
                 return result;

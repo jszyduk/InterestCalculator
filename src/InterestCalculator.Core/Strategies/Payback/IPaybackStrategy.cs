@@ -10,6 +10,6 @@ namespace InterestCalculator.Core.Strategies.Payback
     {
         decimal CalculateTotalInterest(decimal amount, decimal rate);
 
-        decimal CalculateMonthlyInterest(decimal amount, decimal rate);
+        decimal CalculateMonthlyInterest(decimal amount, decimal rate, int month);
     }
 }
